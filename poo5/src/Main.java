@@ -4,7 +4,7 @@ import cuenta.cuenta;
 public class Main {
     public static void main(String[] args) {
 
-        CuentaBancaria transaccion = new CuentaBancaria();
+        cuenta transaccion = new cuenta();
 
         transaccion.ingresarDinero(300);
 

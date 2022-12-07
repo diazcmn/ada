@@ -26,39 +26,41 @@ import java.util.Scanner;
 
 package entidades;
 
-import java.util.Scanner;
-
 public class cuenta {
 
-    int numCuenta ;
-    int dni;
-    int saldoAct;
+    private int NumCuenta ;
+    private int dni;
+    private double SaldoAct;
+    private double interes;
+
 
     public cuenta(){
 
     }
-    public int Dni() {
-        return dni;
+    public cuenta(int NumCuenta, int dni, double SaldoAct, double interes) {
+        this.numCuenta = numCuenta;
+        this.dni = dni;
+        this.saldoAct = saldoAct;
+        this.interes = interes;
     }
-
-    public int NumCuenta() {
-        return dni;
-    }
-
-    public int saldo() {
-        return dni;
-    }
-
-    public int interes() {
-        return dni;
-    }
-
     public int getNumCuenta() {
         return numCuenta;
     }
 
-    public void setNumCuenta(int numCuenta) {
-        this.numCuenta = numCuenta;
+    public double ingresarDinero( double ca){
+
+        Scanner teclado = new Scanner (System.in);
+
+        System.out.println("Digite la cantidad a ingresar");
+
+       double cantidad = teclado.nextDouble();
+
+       SaldoAct += cantidad;
+        System.out.println( "Su saldo bancario es " + SaldoAct);
+        return cantidad;
+    }
+    public void setNumeroCuenta(int numeroCuenta) {
+        this.NumCuenta = NumCuenta;
     }
 
     public int getDni() {
@@ -69,19 +71,25 @@ public class cuenta {
         this.dni = dni;
     }
 
-    public int getSaldoAct() {
+    public double getSaldoAct() {
         return saldoAct;
     }
 
-    public void setSaldoAct(int saldoAct) {
+    public void setSaldoAct(double saldoAct) {
         this.saldoAct = saldoAct;
     }
 
-    public int crearCuenta(){
-        Scanner crearCuenta = new Scanner(System.in);
-        System.out.println("Ingrese numer");
-        crearCuenta.next();
-
-
+    public double getInteres() {
+        return interes;
     }
+
+    public void setInteres(double interes) {
+        this.interes = interes;
+    }
+
+
+
+
+
 }
+
