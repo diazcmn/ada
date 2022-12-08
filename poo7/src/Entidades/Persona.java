@@ -27,5 +27,71 @@ de edad. La función devuelve un booleano.*/
 
 package Entidades;
 
+import java.util.Scanner;
+
 public class Persona {
+
+    private String nombre;
+    private int edad;
+    private double altura;
+    private double peso;
+
+
+    public Persona(){
+    //constructor vacio parainicializxar vaci0o
+    }
+
+    public Persona(){
+        //constructor con parametros
+        this.
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+
+
+    public void crearPersona(){
+        Scanner scan = new Scanner(System.in).useDelimiter(/n);
+        System.out.println("ingrese nombre");
+        nombre.sacan.nextLine();
+        do {
+            sexo = scan.next().char(0);
+            if(){
+
+            }
+
+        }
+    }
 }
+
