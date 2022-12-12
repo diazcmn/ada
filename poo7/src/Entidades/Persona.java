@@ -31,21 +31,31 @@ import java.util.Scanner;
 
 public class Persona {
 
-    private String nombre;
+    private String nombre; // atributos
     private int edad;
     private double altura;
     private double peso;
 
 
     public Persona(){
-    //constructor vacio parainicializxar vaci0o
+    //constructor vacio con el nombre de la clase
+        // para inicializar el objeto cuando hacemos una instancia  con 0 o nulo
+        // es el primero
+        //en este caso no devuelve nada
     }
 
     public Persona(){
-        //constructor con parametros
-        this.
+        //luego constructor con parametros fuera del vacio
+        //clic derecho, generar y agregar constructor de los atributos
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
     }
 
+    //despues setter y getter. clic der, generar.
+    //en caso de necesitarlos setter para setear valores
+    //getter para recuperar esos valores
 
     public String getNombre() {
         return nombre;
@@ -80,18 +90,50 @@ public class Persona {
     }
 
 
-
+//ahora los metodos importantes
+    //en este caso crear una persona
+    //no se devuelve nada (void) pero se pide por pantalla
     public void crearPersona(){
-        Scanner scan = new Scanner(System.in).useDelimiter(/n);
+        Scanner scan = new Scanner(System.in).useDelimiter;
         System.out.println("ingrese nombre");
-        nombre.sacan.nextLine();
+        nombre.scan.nextLine();
+        System.out.println("ingrese edad");
+        edad.scan.nextInt();
+        System.out.println("ingrese sexo");
+        //valido
         do {
-            sexo = scan.next().char(0);
-            if(){
-
+            sexo = scan.next().charAt(0);
+            if(!(sexo =='m' or sexo == 'f' or sexo == 'o')){
+                System.out.println("ingrese caracter valido");
             }
 
+            }while (!(sexo == 'm' or sexo == 'f' or sexo == 'o')){
+            System.out.println("ingrese altura");
+            altura.scan.nextInt();
+            System.out.println("ingrese peso");
+            peso.scan.nextInt();
+
         }
-    }
+        //calculo masa
+        public String calcularImc(){
+            duoble calcularImc = peso / (Math.pow(altura, 2));
+            if (calcularImc < 20 ){
+                return "bajo peso";
+            }else if (calcularImc <= 20 && calcularImc <= 25){
+                return "peso ideal";
+            }else  {
+                return "sobrepeso";
+            }
+        //devuelve booleano
+        public boolean mayorEdad(){
+                if(edad >= 18){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
 }
 
+    public void mayorEdad() {
+    }
