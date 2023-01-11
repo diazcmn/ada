@@ -1,5 +1,9 @@
+import entidades.CalcularArea;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        CalcularArea objeto = new CalcularArea();
+        objeto.Eleccion();
+        objeto.area();
     }
 }
