@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6a8e6529-0f00-4a7b-acd3-89d529cd0f7d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/Integrador-Interfase.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/src/entidades/Biblioteca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Integrador-Interfase/src/entidades/ImpCrear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/colecciones.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../colecciones/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/ejercicio- lista-nombres.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio- lista-nombres/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-collection/ejercicio-collection.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/ejercicio-listas2-libro.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/src/Libro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas-2/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio-listas/ejercicio-listas-num.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../guia-poo2-ej7/guia-poo2-ej7.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../guia-poo2-ej7/src/entidades/Camion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../guia-poo2-ej7/src/entidades/Vehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../guia-poo2-ej7/src/entidades/VehiculoDeportivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../guia-poo2-ej7/src/entidades/VehiculoElectrico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/interfaces-ej1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/src/entidades/ImpLibro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej1/src/entidades/Libro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/interfaces-ej2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/src/entidades/ImpOperacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/src/entidades/Operacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ej2/src/entidades/Suma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/interfaces-ejemplo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/src/entidades/ImpTransporte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-ejemplo/src/entidades/Transporte.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-herencia-multiple-ejemplo/interfaces-herencia-multiple-ejemplo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-herencia-multiple-ejemplo/src/entidades/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../interfaces-herencia-multiple-ejemplo/src/entidades/Profesor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../abstract-dinamico-ej1/out/production/abstract-dinamico-ej1/Postres/Torta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract-dinamico-ej1/out/production/abstract-dinamico-ej1/Postres/Torta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../abstract-dinamico-ej1/src/Postres/Torta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../abstract-dinamico-ej1/src/Postres/Torta.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KvI4rq3EYDurIYYKCnRcE2pZvB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/ejercicio-listas&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ejercicio-lista-libro" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ejercicio-lista-libro" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a8e6529-0f00-4a7b-acd3-89d529cd0f7d" name="Changes" comment="" />
+      <created>1674848443965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674848443965</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
