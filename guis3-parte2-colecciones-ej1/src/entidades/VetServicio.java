@@ -65,6 +65,8 @@ public class VetServicio {
     }
 
 
+    //me saltaba un error que solo se iba si ponia este constructor/metodo vacio aca, no entiendo eso
+
     public void ingresarMascota() {
     }
 }
