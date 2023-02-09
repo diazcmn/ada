@@ -80,12 +80,12 @@ public class Libro {
         System.out.println("Ingresae cantidad de paginas: ");
         int numPag = input.nextInt();
 
-       añadirLibro(libro);
+       agregarLibro(libro);
 
 
     }
 
-    public void añadirLibro(Libro libro){
+    public void agregarLibro(Libro libro){
         listaLibros.add(libro);
     }
 
@@ -94,6 +94,33 @@ public class Libro {
             System.out.println(libro);
 
         }
+    }
+
+
+    public void LibrosMayor300P(){
+        for (Libro i : listaLibros) {
+            if (i.getNumPag() >=300){
+                System.out.println("\n" + "Libros con 300 o mas paginas: ");
+                System.out.println(i);
+            }
+        }
+    }
+
+    public void LibrosMenor150P(){
+        for (Libro i : listaLibros) {
+            if (i.getNumPag() <=150){
+                System.out.println("\n" + "Libros con 150 o menos paginas: ");
+                System.out.println(i);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return   "\n" +
+                "Titulo: " + titulo + "\n" +
+                "Autor: " + autor + "\n"  +
+                "Paginas: " + numPag;
     }
 
 
