@@ -65,6 +65,8 @@ public class Autos {
         int stock = input.nextInt();
 
         //corresponde al metodo de abajo pero se pone aca
+
+
         //agregarData(auto);
 
     }
