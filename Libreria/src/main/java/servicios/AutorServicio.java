@@ -39,4 +39,28 @@ public class AutorServicio {
         }
     }
 
+
+    //mostrar, preguntar al usuario el id para buscar. cada metodo de dao tambien tiene que estar en servicio, trabajan en conjunto
+
+    public void MostrarAutorPorId() throws Exception{
+        try {
+            System.out.println("Ingrear Id del autor a buscar: ");
+            Integer Id= entrada.nextInt();
+            Autor autor = autordao.ObtebnerPorId(Id);//se llama al metodo buscar Id de dao
+            if (autor == null) {
+                throw new Exception("No existe registro");
+
+
+            }else{
+                System.out.println("Resultado");
+                System.out.printf("%-15%-40s\n", "ID", "Nombre");
+                System.out.printf("%-15%-40s\n", autor.getId(), autor.getNombre_autor());
+
+            }
+        }catch (Exception e){
+            throw new Exception("No se encontro autor: ");
+        }
+    }
+
+
 }

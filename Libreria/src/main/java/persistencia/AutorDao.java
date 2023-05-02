@@ -35,6 +35,18 @@ public class AutorDao {
 
     }
 
+    //no es void porque en este caso si devulve un dato, tampoco es list porque no devulve lista sino un dato, el id
 
+    public Autor ObtebnerPorId(Integer Id) throws Exception{
+        try {
+            //instancia objeto autor, mediante la persistencia tiene que buscar oir id
+            Autor autor = em.find(Autor.class, Id);
+            return autor;
+        }catch (Exception e){
+            throw new Exception("Error al buscar");
+        }
+
+
+    }
 
 }

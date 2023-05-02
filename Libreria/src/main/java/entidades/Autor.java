@@ -35,7 +35,7 @@ private String apellido_autor;
     //constructores por parametros, getters y setters
 
 
-    public Autor(Integer id, String nombre_autor) {
+    public Autor(Integer id, String nombre_autor, String apellido_autor) {
         Id = id;
         this.nombre_autor = nombre_autor;
         this.apellido_autor = apellido_autor;

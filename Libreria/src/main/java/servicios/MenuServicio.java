@@ -14,9 +14,10 @@ public class MenuServicio {
     //menu
     public void Menu() throws Exception{
         try{
-            System.out.println("\n" + "-------Menu-------\n"
+            System.out.println("\n" + "-------Menu---------\n"
             + "1) Registrar un autor \n"
-            + "1) Salir \n");
+            + "2) Buscar autor por Id \n"
+            + "3) Salir \n");
             System.out.println("Seleccione una opcion");
             String rta = entrada.next();
 
@@ -38,11 +39,16 @@ public class MenuServicio {
                 break;
 
                 case "2":
+                    autorServicio.MostrarAutorPorId();
+                    Menu();
+                    break;
+
+                case "3":
                     System.out.println("Consulta finalizada");
 
-                default:
+                /*default:
                     System.out.println("Ingrese una opcion valida");
-                    Menu();
+                    Menu();*/
 
             }
 
