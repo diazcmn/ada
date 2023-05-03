@@ -57,7 +57,7 @@ private String apellido_autor;
         this.nombre_autor = nombre_autor;
     }
 
-    public String getApellido_autor() {
+    public String getApellido_autor(String apellido) {
         return apellido_autor;
     }
 

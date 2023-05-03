@@ -22,12 +22,19 @@ public class AutorServicio {
 
         try {
             //parte logica de la creacion de un autor
-            System.out.println("Ingrese npmbre autor: ");
+            System.out.println("Ingrese nombre autor: ");
             String nombre = entrada.next();
             autor.setNombre_autor(nombre);
+
+            System.out.println("Ingrese apellido autor: ");
+            String apellido = entrada.next();
+            autor.getApellido_autor(apellido);
+
             if (nombre == null || nombre.trim().isEmpty()){
                 throw new Exception("Debe contener un nombre: ");
 
+            }else if (apellido == null || apellido.trim().isEmpty()) {
+                throw new Exception("Debe contener un apellido: ");
             }else{
                 System.out.println("Se guerdo exitosamente: ");
             }
