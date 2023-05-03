@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class AutorServicio {
     //primero llamar a scanner porque es dinamico
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
 
     //instancia de autordao para poder traer los archivos de autordao a autorservicio
     //metodo insertar (unico por el momento)
@@ -28,7 +28,7 @@ public class AutorServicio {
 
             System.out.println("Ingrese apellido autor: ");
             String apellido = entrada.next();
-            autor.getApellido_autor(apellido);
+            autor.setApellido_autor(apellido);
 
             if (nombre == null || nombre.trim().isEmpty()){
                 throw new Exception("Debe contener un nombre: ");
