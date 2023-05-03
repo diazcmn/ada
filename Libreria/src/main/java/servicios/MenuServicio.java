@@ -6,7 +6,7 @@ import java.util.Scanner;
 //config del menu
 public class MenuServicio {
 
-    Scanner entrada = new Scanner(System.in);
+    Scanner entrada = new Scanner(System.in).useDelimiter("\n");
 
     //instancia autor para poder usar los metodos
     AutorServicio autorServicio = new AutorServicio();
@@ -20,8 +20,8 @@ public class MenuServicio {
             + "3) Salir \n");
             System.out.println("Seleccione una opcion");
             String rta = entrada.next();
-
             OpcionSeleccionar(rta); //llamada a metodo
+
         }catch (Exception e){
             throw new Exception("Debe contener una opcion valida");
 
