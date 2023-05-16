@@ -1,19 +1,18 @@
 package com.example.RegistroPersona.controlador;
-
-
-import ch.qos.logback.core.model.Model;
 import com.example.RegistroPerson.entidad.Persona;
-import com.example.RegistroPersona.servicio.PersonaServ;
 import com.example.RegistroPersona.servicio.PersonaServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 //declaro con la notacion
 @Controller
-public class Controlador {
+public class controlador {
     //clase encargada de hacer una interaccion con las vistas y la parte logica
     //inyectamos datos con autowired
     @Autowired
@@ -35,6 +34,56 @@ public class Controlador {
         model.addAttribute("personas", personas);
 
         return "index";
+    }
+
+    @GetMapping("/nee") //ruta
+    public String Agregar(Model model){
+        Persona persona = new Persona();//instancia
+        model.addAttribute("persona", persona);
+        return "crear_persona";//crear un nuevo form para guardar, lo mando con post
+
+    }
+
+    @GetMapping("/save")
+    public String Guardar(@ModelAttribute("persona")Persona persona){
+        //llamo a servicio
+        servicio.guardarP(persona);
+        //retirno despues de guardar
+        return "redirect:/listar";
+
+    }
+
+
+    @GetMapping("/editar/{id}")
+    //crear get para que nos mande al nuevo formulario. pathvariable identifica datos
+    //model para mandar un unevo objeto la nuevo form
+    public String mostrarFormEditar(@PathVariable Integer id, Model model){
+        model.addAttribute("persona", servicio.ObtenerPorId(id));
+        //peticion. busca persona con id que quiera
+        return "editar_persona";
+    }
+
+    //metodo para guardar los cambios en el nuevo form. es un post
+    //porque aloja cambios en la base de datos
+    @GetMapping("/editar/{id}")
+    public String actuializarP(@PathVariable Integer id, @ModelAttribute("persona")Persona persona){
+        //uso model entonces creo instancia que va a obtener id de la persona que necesito
+        Persona personaExistente = servicio.ObtenerPorId(id);
+        personaExistente.setId(id);
+        personaExistente.setNombre(persona.getNombre());
+        personaExistente.setTelefono(persona.getTelefono());
+        servicio.actualizarP(personaExistente);
+        //si actualice el nombre lo tengo que guardar
+        //para obtener datos uso get para pasar datos uso set
+        return "redirect:/listar";
+    }
+
+    @GetMapping("/eliminar/(id)") //patvariable para reconocer nuestro id
+    public String eliminarP(@PathVariable Integer id){
+        servicio.eliminarP(Id);
+        return "redirect:/listar";
+
+
     }
 
 }

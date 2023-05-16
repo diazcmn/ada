@@ -5,6 +5,7 @@ import com.example.RegistroPerson.entidad.Persona;
 import com.example.RegistroPersona.repositorio.PersonaRepo;
 import com.example.RegistroPersona.servicio.PersonaServ;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,21 +28,25 @@ public class ImpPersServ implements PersonaServ{
 
     @Override
     public Persona guardarP(Persona persona) {
-        return null;
+
+        return personRepo.save(persona);//siempre que se cambia algo en los metodos vamos a controlador
+        //para trabajar en conjunto. Sabemos que si vamos a controlador vamos a trabajar con html
     }
 
     @Override
     public Persona ObtenerPorId(Integer Id) {
-        return null;
+        return personRepo.findById(id).get(); //trabaja junto con actualizar
     }
 
     @Override
     public Persona actualizarP(Persona persona) {
-        return null;
+
+        return personRepo.save(persona);
     }
 
     @Override
-    public void eliminarP(Integer Id) {
+    public void eliminarP(Integer id) {
+        personRepo.deleteAllById(id);//no me reconce el id y me crea un void en personarepo
 
     }
 }

@@ -9,7 +9,5 @@ import org.springframework.stereotype.Repository;
 
 //extension, metodo que contiene crud proporcionado por spring
 //entre <> le pasamos la entidad y su tipo de dato que maneja su clave primaria
-public interface PersonaRepo extends JpaRepository<Persona, Integer> {
-
-}
+public interface PersonaRepo extends JpaRepository<Persona, Integer> {}
 
