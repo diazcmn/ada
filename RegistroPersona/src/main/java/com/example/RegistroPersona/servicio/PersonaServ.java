@@ -1,6 +1,6 @@
 package com.example.RegistroPersona.servicio;
 
-import com.example.RegistroPerson.entidad.Persona;
+import com.example.RegistroPersona.entidad.Persona;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.example.RegistroPersona.servicio;
 
 
-import com.example.RegistroPerson.entidad.Persona;
+import com.example.RegistroPersona.entidad.Persona;
 import com.example.RegistroPersona.repositorio.PersonaRepo;
 import com.example.RegistroPersona.servicio.PersonaServ;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class ImpPersServ implements PersonaServ{
 
     @Override
     public List<Persona> listarTodasP() {
-        return PersonaRepo.findAll();
+        return personRepo.findAll();
         //configurar metodos, retorno una lista gracias a @repository de personrepo
     }
 
@@ -34,7 +34,7 @@ public class ImpPersServ implements PersonaServ{
     }
 
     @Override
-    public Persona ObtenerPorId(Integer Id) {
+    public Persona ObtenerPorId(Integer id) {
         return personRepo.findById(id).get(); //trabaja junto con actualizar
     }
 
@@ -46,7 +46,7 @@ public class ImpPersServ implements PersonaServ{
 
     @Override
     public void eliminarP(Integer id) {
-        personRepo.deleteAllById(id);//no me reconce el id y me crea un void en personarepo
+        personRepo.deleteById(id);//no me reconce el id y me crea un void en personarepo
 
     }
 }

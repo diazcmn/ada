@@ -1,4 +1,5 @@
-package com.example.RegistroPerson.entidad;
+package com.example.RegistroPersona.entidad;
+
 
 import jakarta.persistence.*;
 

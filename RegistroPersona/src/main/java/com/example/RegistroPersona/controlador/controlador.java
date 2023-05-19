@@ -1,5 +1,5 @@
 package com.example.RegistroPersona.controlador;
-import com.example.RegistroPerson.entidad.Persona;
+import com.example.RegistroPersona.entidad.Persona;
 import com.example.RegistroPersona.servicio.PersonaServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class controlador {
         return "index";
     }
 
-    @GetMapping("/nee") //ruta
+    @GetMapping("/new") //ruta
     public String Agregar(Model model){
         Persona persona = new Persona();//instancia
         model.addAttribute("persona", persona);
@@ -44,7 +45,7 @@ public class controlador {
 
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public String Guardar(@ModelAttribute("persona")Persona persona){
         //llamo a servicio
         servicio.guardarP(persona);
@@ -65,7 +66,7 @@ public class controlador {
 
     //metodo para guardar los cambios en el nuevo form. es un post
     //porque aloja cambios en la base de datos
-    @GetMapping("/editar/{id}")
+    @PostMapping("/editar/{id}")
     public String actuializarP(@PathVariable Integer id, @ModelAttribute("persona")Persona persona){
         //uso model entonces creo instancia que va a obtener id de la persona que necesito
         Persona personaExistente = servicio.ObtenerPorId(id);
@@ -78,9 +79,9 @@ public class controlador {
         return "redirect:/listar";
     }
 
-    @GetMapping("/eliminar/(id)") //patvariable para reconocer nuestro id
+    @GetMapping("/eliminar/{id}") //pathvariable para reconocer nuestro id
     public String eliminarP(@PathVariable Integer id){
-        servicio.eliminarP(Id);
+        servicio.eliminarP(id);
         return "redirect:/listar";
 
 
