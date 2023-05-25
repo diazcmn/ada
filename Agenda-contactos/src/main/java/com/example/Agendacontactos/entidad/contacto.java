@@ -9,14 +9,12 @@ import java.time.LocalDateTime;
 
 //notacion entidad y nombre tabla
 @Entity
-@TableGenerator(name = "contactos")
+@Table(name = "contactos")
 public class contacto {
-    //id con autoincremento. no hace falta nombrar las tablas esta vez
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    //atributos
-    private Integer id;
+    @Id  //id con autoincremento. no hace falta nombrar las tablas esta vez
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;  //atributos
 
     @NotBlank(message = "Ingresar nombre: ")
     private String nombre;
@@ -24,9 +22,9 @@ public class contacto {
     @NotBlank(message = "Ingresar telefono: ")
     private String telefono;
 
-    @NotBlank(message = "Ingresar correo: ") //mesaje a validar en html.
+   // @NotBlank(message = "Ingresar correo: ") //mesaje a validar en html.
     @Email //validacion. para que contenga si o si una @
-    @NotEmpty // validacion. al menos un caracter
+    @NotEmpty(message = "Ingrese al menos un caracter") // validacion. al menos un caracter
     private  String correo;
 
     //notacion para la fecha
@@ -89,10 +87,6 @@ public class contacto {
         this.fechaRegistro = fechaRegistro;
     }
 
-    @PrePersist
-    public void asignarFechaRegistro(){
-        fechaRegistro = LocalDateTime.now();
-    }
 
     //metodo de fecharegistro. toma la hora actual de la pc
     @PrePersist //para que funcione correctamente, asigna fecha actual

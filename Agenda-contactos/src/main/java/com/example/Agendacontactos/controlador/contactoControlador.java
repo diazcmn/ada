@@ -44,7 +44,7 @@ public class contactoControlador {
         contactoServ.guardarContacto(contacto);
         redirectAttributes.addFlashAttribute("msgExito", "El contacto se ha agregado");
 
-        return "redirect:/:";
+        return "redirect:/";
 
     }
     @GetMapping("/editar/{id}")

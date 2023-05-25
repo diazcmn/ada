@@ -16,5 +16,6 @@ public interface contactoServ {
 
     public contacto actualizatContacto(contacto contacto);
 
-    public void eliminarContacto(contacto contacto); //void elimina, no devuelve. elimina por objeto ahora no por id
+    public void eliminarContacto(contacto contacto);
+    //void elimina, no devuelve. elimina por objeto ahora no por id
 }
