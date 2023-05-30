@@ -10,8 +10,9 @@ import java.util.List;
 //notacion servicio, traer implementacion de metodos crud de contactoserv
 @Service
 public class ImpContactoServ implements contactoServ{
-    //se recuperan los datos y se arma el cuerpo de los metodos
 
+    //se recuperan los datos (inyeccion de dependencia de jpa, metodos) y se arma el cuerpo de los metodos
+    // por eso los override
     @Autowired
     private contactoRepo contactoRepo;
 
