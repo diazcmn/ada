@@ -1,7 +1,6 @@
 package com.example.RegistroPersona.entidad;
 
-
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 //etiquetas
 @Entity

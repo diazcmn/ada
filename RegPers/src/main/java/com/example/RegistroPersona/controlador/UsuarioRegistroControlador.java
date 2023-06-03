@@ -8,10 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 //notacion controlados
 @Controller
-@GetMapping("/registro") //direccion pagina
+@RequestMapping("/registro") //direccion pagina
 public class UsuarioRegistroControlador {
 
     @Autowired //inyeccion de usuarioservicio
