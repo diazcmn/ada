@@ -6,20 +6,29 @@ public class UsuarioRegistroDTO {
     private Long id;
     private String nombre;
     private String apellido;
-    private String correo;
+    private String email;
     private String password;
 
     //metodo parametros
-    public UsuarioRegistroDTO(Long id, String nombre, String apellido, String correo, String password){
+    public UsuarioRegistroDTO(Long id, String nombre, String apellido, String email, String password) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correo = correo;
+        this.email = email;
+        this.password = password;
+    }
+
+    //metodo parametros sin id
+    public UsuarioRegistroDTO(String nombre, String apellido, String email, String password) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
         this.password = password;
     }
 
     //constructores con parametros por separado
-    public UsuarioRegistroDTO(String correo){
-        this.correo = correo;
+    public UsuarioRegistroDTO(String email){
+        this.email = email;
     }
 
     //contructor vacio
@@ -51,12 +60,12 @@ public class UsuarioRegistroDTO {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
