@@ -11,25 +11,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //notacion controlados
+
 @Controller
-@RequestMapping("/registro") //direccion pagina
+@RequestMapping("/registro")//Direccion de la web
 public class UsuarioRegistroControlador {
 
-    @Autowired //inyeccion de usuarioservicio
+    //Inyeccion de dependecias de los metodos de servicio
+    @Autowired
     private UsuarioServicio usuarioServicio;
 
-    @ModelAttribute("usuario") //modelamos objeto
-    public UsuarioRegistroDTO devolverNuevoUsuarioRegistroDTO(){
+    //Ayuda a guardar los usuarios con el dto
+    @ModelAttribute("usuario")
+    public UsuarioRegistroDTO retornarNuevoUsuarioRegistroDTO() {
         return new UsuarioRegistroDTO();
     }
+
+    //Muestra nuestro form de registros
     @GetMapping
-    public String MostrarFormRegistro(){
+    public String MostrarFormularioDeRegistro() {
         return "registro";
     }
 
-    @PostMapping String registroCuentaUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO){
-    usuarioServicio.guardar(registroDTO);
-    return "redirect:/registro?exito";
+    //Guarda los usuarios registrados con ayuda del dto y el metodo de servicio
+    @PostMapping
+    public String registrarCuentaDeUsuario(@ModelAttribute("usuario") UsuarioRegistroDTO registroDTO){
+        usuarioServicio.guardar(registroDTO);
+        return "redirect:/registro?exito";
     }
 
 }

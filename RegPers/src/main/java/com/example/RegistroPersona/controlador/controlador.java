@@ -1,6 +1,7 @@
 package com.example.RegistroPersona.controlador;
 import com.example.RegistroPersona.entidad.Persona;
 import com.example.RegistroPersona.servicio.PersonaServ;
+import com.example.RegistroPersona.servicio.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,29 @@ public class controlador {
     private PersonaServ servicio;
     // esta clase es la que contiene todos los metodos que nosotros vamos a implementar
 
-    //configurar metodos que van a tener intereaccion con las vistas html
+    @Autowired
+    private UsuarioServicio Uservicio;
+
+
+    @GetMapping("/login")
+    public String iniciarSesion(){
+        return "login";
+    }
+
+    //Este metodo retornara la lista de usuarios que estan registrados con permisos
+    @GetMapping("/")
+    public String verPaginaDeInicio(Model modelo){
+        modelo.addAttribute("usuarios", Uservicio.listarUsuario());
+        return "index"; //el html se llama index
+    }
+
+    //Pagina de inicio del sistema
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    //configurar metodos que van a tener interaccion con las vistas html
     //renderizar lista
     @GetMapping("/listar")
     public String listar(Model model){
@@ -30,11 +53,11 @@ public class controlador {
         //model es una interfaz que define un conjunto de metodos para agregar atributos a un modelo de datos
         //que se va a utilizar en una vista
 
-        //devlvemos objetos asique hacemos una lista
+        //devlvemos objetos asi que hacemos una lista
         List<Persona> personas = servicio.listarTodasP();
         model.addAttribute("personas", personas);
 
-        return "index";
+        return "lista";
     }
 
     @GetMapping("/new") //ruta
