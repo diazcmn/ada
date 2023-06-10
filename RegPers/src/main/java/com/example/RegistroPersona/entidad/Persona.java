@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Table
 public class Persona {
 
+
     //atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
