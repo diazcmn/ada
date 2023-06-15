@@ -47,11 +47,11 @@ public class autorControlador {
         autorServicio.guardarAutores(autores);
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
         return "redirect:/";  //preguntar
-
+    }
         @GetMapping("/editar/{id}")
-        public String formEditarAutores(@PathVariable Integer Id, Model model){
-            Autores autores1 = autorServicio.buscarAutoresporId(Id);
-            model.addAttribute("Autores", autores);
+        public String formEditarAutores(@PathVariable Integer id, Model model){
+            Autores autores1 = autorServicio.buscarAutoresporId(id);
+            model.addAttribute("Autores", autores1);
             return "editar";
 
         }
@@ -59,20 +59,20 @@ public class autorControlador {
 
      @PostMapping("/editar/{id}")
 
-        public String editarAtores(@PathVariable Integer Id, @Validated Autores autores,
-            BindingResult bindinResult, RedirectAttributes redirect, Model model){
-            Autores autoresDB = autorServicio.buscarAutoresporId(Id);
+        public String editarAtores(@PathVariable Integer id, @Validated Autores autores,
+            BindingResult bindingResult, RedirectAttributes redirect, Model model){
+            Autores autoresDB = autorServicio.buscarAutoresporId(id);
 
-            if (BindingResult.hasErrors()) {
+            if (bindingResult.hasErrors()) {
                 model.addAttribute("Autores", autores);
                 return "editar";
 
             }
 
 
-            autoresDB.setNombreAutor(Autores.getnombreAutror());
-            autoresDB.setApellidoAutor(Autores.getApellidoAutor());
-            autoresDB.setfechaNacAutor(Autores.getfechaNacAutor());
+            autoresDB.setNombreAutor(autores.getNombreAutor());
+            autoresDB.setApellidoAutor(autores.getApellidoAutor());
+            autoresDB.setApellidoAutor(autores.getApellidoAutor());
 
             autorServicio.guardarAutores(autoresDB);
 
@@ -83,9 +83,9 @@ public class autorControlador {
         }
 
         @PostMapping("/eliminar/{id}")
-        public String eliminarContacto(@PathVariable Integer Id,RedirectAttributes redirect) {
-            Autores autores1 = autorServicio.buscarAutoresporId(Id);
-            autorServicio.eliminarAutores(Id);
+        public String eliminarContacto(@PathVariable Integer id,RedirectAttributes redirect) {
+            Autores autores1 = autorServicio.buscarAutoresporId(id);
+            autorServicio.eliminarAutores(autores1);
 
             redirect.addFlashAttribute("msgExito", "Se elimino el autor");
 
@@ -93,3 +93,4 @@ public class autorControlador {
 
 }
     }
+

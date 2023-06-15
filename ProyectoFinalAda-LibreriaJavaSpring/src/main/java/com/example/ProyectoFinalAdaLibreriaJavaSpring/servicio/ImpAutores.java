@@ -22,28 +22,28 @@ public class ImpAutores implements autorServicio{
     //una lista del objeto <contacto> que muestre todo findall
 
     public List<Autores> listar() {
-        return autoresRepo.findAll(Autores);
+        return autoresRepo.findAll();
     }
 
     @Override
     public Autores guardarAutores(Autores autores) {
-        return autoresRepo.save(Autores);
+        return autoresRepo.save(autores);
     }
 
     @Override
     public Autores buscarAutoresporId(Integer id) {
-        return autoresRepo.findBy(Id).get();
+        return autoresRepo.findById(id).get();
     }
 
     @Override
     public Autores editarAutores(Autores autores) {
-        return autoresRepo.save(Autores);
+        return autoresRepo.save(autores);
     }
 
     @Override
     public void eliminarAutores(Autores autores) {
 
-        autoresRepo.delete(Autores);
+        autoresRepo.delete(autores);
 
     }
 }
