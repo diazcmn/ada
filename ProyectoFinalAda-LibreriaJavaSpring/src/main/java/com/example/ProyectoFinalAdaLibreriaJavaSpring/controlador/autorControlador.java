@@ -26,8 +26,8 @@ public class autorControlador {
     public String verInicio(Model model){
         List<Autores> autores = autorServicio.listar();
         model.addAttribute("Autores", autores);
-        return "index";
-        //onfigurar los metodos sin firma,
+        return "inicio";
+        //configurar los metodos sin firma,
         // despues la implementacion y por ultimo controlador
     }
 
@@ -58,21 +58,20 @@ public class autorControlador {
 
 
      @PostMapping("/editar/{id}")
+       public String editarAtores(@PathVariable Integer id, @Validated Autores autores,
+           BindingResult bindingResult, RedirectAttributes redirect, Model model){
+        Autores autoresDB = autorServicio.buscarAutoresporId(id);
 
-        public String editarAtores(@PathVariable Integer id, @Validated Autores autores,
-            BindingResult bindingResult, RedirectAttributes redirect, Model model){
-            Autores autoresDB = autorServicio.buscarAutoresporId(id);
-
-            if (bindingResult.hasErrors()) {
-                model.addAttribute("Autores", autores);
+        if (bindingResult.hasErrors()) {
+              model.addAttribute("Autores", autores);
                 return "editar";
 
-            }
+           }
 
 
             autoresDB.setNombreAutor(autores.getNombreAutor());
             autoresDB.setApellidoAutor(autores.getApellidoAutor());
-            autoresDB.setApellidoAutor(autores.getApellidoAutor());
+            autoresDB.setFechaNacAutor(autores.getFechaNacAutor());
 
             autorServicio.guardarAutores(autoresDB);
 
@@ -83,7 +82,7 @@ public class autorControlador {
         }
 
         @PostMapping("/eliminar/{id}")
-        public String eliminarContacto(@PathVariable Integer id,RedirectAttributes redirect) {
+        public String eliminarAutores(@PathVariable Integer id,RedirectAttributes redirect) {
             Autores autores1 = autorServicio.buscarAutoresporId(id);
             autorServicio.eliminarAutores(autores1);
 
