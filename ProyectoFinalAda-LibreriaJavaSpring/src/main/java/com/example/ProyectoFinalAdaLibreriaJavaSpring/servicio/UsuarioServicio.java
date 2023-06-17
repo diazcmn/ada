@@ -1,7 +1,7 @@
-package com.example.RegistroPersona.servicio;
+package com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio;
 
-import com.example.RegistroPersona.dto.UsuarioRegistroDTO;
-import com.example.RegistroPersona.entidad.Usuario;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.dto.UsuarioRegistroDTO;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Usuario;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UsuarioServicio extends UserDetailsService{
 
-    public Usuario guardar(UsuarioRegistroDTO registroDTO);
+    public Usuario guardar(UsuarioRegistroDTO usuarioRegistroDTO);
     public List<Usuario> listarUsuario();
 
 }

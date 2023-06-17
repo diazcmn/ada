@@ -1,4 +1,4 @@
-package com.example.RegistroPersona.servicio;
+package com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -6,11 +6,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-import com.example.RegistroPersona.dto.UsuarioRegistroDTO;
-import com.example.RegistroPersona.entidad.Rol;
-import com.example.RegistroPersona.entidad.Usuario;
-import com.example.RegistroPersona.repositorio.UsuarioRepositorio;
-import com.example.RegistroPersona.servicio.UsuarioServicio;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.dto.UsuarioRegistroDTO;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Rol;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Usuario;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.repositorio.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -26,30 +25,30 @@ import org.springframework.stereotype.Service;
 //Configurar que el usuario este correctamente registrado con su coreo y contraseña
 //Y tambien listar los usuarios registrados
 @Service
-public class UsuarioServicioImpl implements UsuarioServicio {
+public class UsuarioServImp implements UsuarioServicio {
 
     //Inyeccion de dependencias para encriptar la contraseña
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsuarioRepositorio usuarioRepositorio;
+    private UsuarioRepo usuarioRepo;
 
     //Guardamos el usuario con ayuda del dto, con el nombre, apellido, correo
     // pass encriptada y rol asignado
     @Override
-    public Usuario guardar(UsuarioRegistroDTO registroDTO) {
-        Usuario usuario = new Usuario(registroDTO.getNombre(),
-                registroDTO.getApellido(),registroDTO.getEmail(),
-                passwordEncoder.encode(registroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
-        return usuarioRepositorio.save(usuario);
+    public Usuario guardar(UsuarioRegistroDTO usuarioRegistroDTO) {
+        Usuario usuario = new Usuario(UsuarioRegistroDTO.getNombre(),
+                UsuarioRegistroDTO.getApellido(),UsuarioRegistroDTO.getEmail(),
+                passwordEncoder.encode(UsuarioRegistroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
+        return usuarioRepo.save(usuario);
     }
 
 
     //Verificamos su registro si son validos correo o pass desde el login
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioRepositorio.findByEmail(username);
+        Usuario usuario = usuarioRepo.findByEmail(username);
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuario o password inválidos");
         }
@@ -63,7 +62,7 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     //listamos usuarios registrados con permisos o roles
     @Override
     public List<Usuario> listarUsuario() {
-        return usuarioRepositorio.findAll();
+        return usuarioRepo.findAll();
     }
 
 
