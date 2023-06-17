@@ -30,8 +30,8 @@ public class Libros {
 
     //relacion bd
     @ManyToOne
-    @JoinColumn(name = "autor_id")
-    private Autores autores;
+    @JoinColumn(name = "libro_id")
+    private Libro libros;
 
     //contrusctor vacio
     public Libros(){}
@@ -47,5 +47,72 @@ public class Libros {
         this.anioEdicion = anioEdicion;
         this.cantidadEjemplares = cantidadEjemplares;
         this.condicionEjemplares = condicionEjemplares;
+    }
+
+    //getter y setter
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public String getAnioEdicion() {
+        return anioEdicion;
+    }
+
+    public void setAnioEdicion(String anioEdicion) {
+        this.anioEdicion = anioEdicion;
+    }
+
+    public int getCantidadEjemplares() {
+        return cantidadEjemplares;
+    }
+
+    public void setCantidadEjemplares(int cantidadEjemplares) {
+        this.cantidadEjemplares = cantidadEjemplares;
+    }
+
+    public String getCondicionEjemplares() {
+        return condicionEjemplares;
+    }
+
+    public void setCondicionEjemplares(String condicionEjemplares) {
+        this.condicionEjemplares = condicionEjemplares;
+    }
+
+    public Autores getAutores() {
+        return autores;
+    }
+
+    public void setAutores(Autores autores) {
+        this.autores = autores;
     }
 }
