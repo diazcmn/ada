@@ -3,7 +3,6 @@ package com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio;
 
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Autores;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Libros;
-import com.example.ProyectoFinalAdaLibreriaJavaSpring.repositorio.autoresRepo;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.repositorio.librosRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +35,7 @@ public class ImpLibros implements libroServicio{
     }
 
     @Override
-    public Libros editarLibros(Autores autores) {
+    public Libros editarLibros(Libros libros) {
         return librosRepo.save(libros);
     }
 

@@ -11,10 +11,15 @@ import java.util.List;
 public interface libroServicio {
     //metodos sin firma, despues la implementacion
     public List<Libros> listarL();
-    public Libros guardarAutores(Libros libros);
-    public Libros buscarAutoresporId(Integer id);
-    public Libros editarAutores(Libros libros);
-    public void eliminarAutores(Libros libros);
+
+    public Libros guardarLibros(Libros libros);
+
+    public Libros buscarLibrosporId(Integer id);
+
+    public Libros editarLibros(Libros libros);
+
+    public void eliminarLibros(Libros libros);
     //son entidad y con void porque no retorna
+
 
 }

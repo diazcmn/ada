@@ -2,8 +2,8 @@ package com.example.ProyectoFinalAdaLibreriaJavaSpring.controlador;
 
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Autores;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.autorServicio;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

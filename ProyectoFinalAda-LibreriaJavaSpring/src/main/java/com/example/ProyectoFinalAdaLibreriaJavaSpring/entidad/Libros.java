@@ -1,7 +1,7 @@
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -10,8 +10,6 @@ public class Libros {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "autor", length = 100, nullable = false)
-    private String autor;
 
     @Column(name = "titulo", length = 100, nullable = false)
     private String titulo;
@@ -31,7 +29,7 @@ public class Libros {
     //relacion bd
     @ManyToOne
     @JoinColumn(name = "libro_id")
-    private Libro libros;
+    private Libros libros;
 
     //contrusctor vacio
     public Libros(){}
@@ -39,9 +37,8 @@ public class Libros {
 
 
     //contructor con parametros
-    public Libros(int id, String autor, String titulo, String ISBN, String anioEdicion, int cantidadEjemplares, String condicionEjemplares ){
+    public Libros(int id, String libro, String titulo, String ISBN, String anioEdicion, int cantidadEjemplares, String condicionEjemplares ){
         this.id = id;
-        this.autor = autor;
         this.titulo = titulo;
         this.ISBN = ISBN;
         this.anioEdicion = anioEdicion;
@@ -58,14 +55,6 @@ public class Libros {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
     }
 
     public String getTitulo() {
@@ -106,13 +95,5 @@ public class Libros {
 
     public void setCondicionEjemplares(String condicionEjemplares) {
         this.condicionEjemplares = condicionEjemplares;
-    }
-
-    public Autores getAutores() {
-        return autores;
-    }
-
-    public void setAutores(Autores autores) {
-        this.autores = autores;
     }
 }

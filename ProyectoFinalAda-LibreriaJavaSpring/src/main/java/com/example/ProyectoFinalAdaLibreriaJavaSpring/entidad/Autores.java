@@ -1,7 +1,7 @@
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad;
 
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.List;
 
