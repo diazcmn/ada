@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public class UsuarioRepo extends JpaRepository<Usuario, Long> {
+public interface UsuarioRepo extends JpaRepository<Usuario, Long> {
     public Usuario findByEmail(String email);
 
 }
