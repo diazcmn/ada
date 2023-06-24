@@ -1,9 +1,9 @@
+
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.controlador;
 
-
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Libros;
-
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.libroServicio;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,36 +20,38 @@ import java.util.List;
 public class libroControlador {
 
     @Autowired
-    private libroServicio librosServicio;
+    private  libroServicio  libroServicio;
+
     @GetMapping("/") //inicio
     public String verInicio(Model model){
         List<Libros> libros = libroServicio.listarL();
+        model.addAttribute("Libros",  libros);
+        return "inicio";
         //configurar los metodos sin firma,
         // despues la implementacion y por ultimo controlador
-        return "inicio";
     }
 
     @GetMapping("/nuevo")
     public String formNuevoLibro(Model model){
-        model.addAttribute("Libro", new Libros());
+        model.addAttribute("Autor", new Libros());
         return "nuevo";
     }
 
     @PostMapping("/save")
-    public String guardarLibros(@Validated Libros libros, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+    public String guardarLibro(@Validated Libros  libros, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
         if (bindingResult.hasErrors()) {
-            model.addAttribute("Libros", libros);
+            model.addAttribute("Libros",  libros);
             return "nuevo";
 
         }
         libroServicio.guardarLibros(libros);
-        redirectAttributes.addFlashAttribute("msgExito", "Libro añadido");
+        redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
         return "redirect:/";  //preguntar
     }
     @GetMapping("/editar/{id}")
     public String formEditarLibros(@PathVariable Integer id, Model model){
-       Libros libros1 = libroServicio.buscarLibrosporId(id);
-        model.addAttribute("Libros", libros1);
+        Libros libros = libroServicio.buscarLibrosporId(id);
+        model.addAttribute("Libros",  libros);
         return "editar";
 
     }
@@ -58,7 +60,7 @@ public class libroControlador {
     @PostMapping("/editar/{id}")
     public String editarLibros(@PathVariable Integer id, @Validated Libros libros,
                                BindingResult bindingResult, RedirectAttributes redirect, Model model){
-       Libros libroDB = libroServicio.buscarLibrosporId(id);
+        Libros librosDB = libroServicio.buscarLibrosporId(id);
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("Libros", libros);
@@ -67,13 +69,14 @@ public class libroControlador {
         }
 
 
-        libroDB.setTitulo(libros.getTitulo());
-        libroDB.setISBN(libros.getISBN());
-        libroDB.setAnioEdicion(libros.getAnioEdicion());
-        libroDB.setCantidadEjemplares(libros.getCantidadEjemplares());
-        libroDB.setCondicionEjemplares(libros.getCondicionEjemplares());
+        librosDB.setTitulo(libros.getTitulo());
+        librosDB.setISBN(libros.getISBN());
+        librosDB.setAnioEdicion(libros.getAnioEdicion());
+        librosDB.setCantidadEjemplares(libros.getCantidadEjemplares());
+        librosDB.setCondicionEjemplares(libros.getCondicionEjemplares());
 
-        libroServicio.guardarLibros(libroDB);
+        libroServicio.guardarLibros(librosDB);
+
 
         redirect.addFlashAttribute("msgExito", "El autor " +
                 "se actualizo correctamente");
@@ -83,7 +86,7 @@ public class libroControlador {
 
     @PostMapping("/eliminar/{id}")
     public String eliminarAutores(@PathVariable Integer id,RedirectAttributes redirect) {
-       Libros libros = libroServicio.buscarLibrosporId(id);
+        Libros libros = libroServicio.buscarLibrosporId(id);
         libroServicio.eliminarLibros(libros);
 
         redirect.addFlashAttribute("msgExito", "Se elimino el autor");
@@ -92,4 +95,5 @@ public class libroControlador {
 
     }
 }
+
 
