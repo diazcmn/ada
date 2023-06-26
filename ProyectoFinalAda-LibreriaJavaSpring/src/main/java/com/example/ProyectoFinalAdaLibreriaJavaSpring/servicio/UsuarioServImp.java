@@ -38,9 +38,9 @@ public class UsuarioServImp implements UsuarioServicio {
     // pass encriptada y rol asignado
     @Override
     public Usuario guardar(UsuarioRegistroDTO usuarioRegistroDTO) {
-        Usuario usuario = new Usuario(UsuarioRegistroDTO.getNombre(),
-                UsuarioRegistroDTO.getApellido(),UsuarioRegistroDTO.getEmail(),
-                passwordEncoder.encode(UsuarioRegistroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
+        Usuario usuario = new Usuario(usuarioRegistroDTO.getNombre(),
+                usuarioRegistroDTO.getApellido(),usuarioRegistroDTO.getEmail(),
+                passwordEncoder.encode(usuarioRegistroDTO.getPassword()), Arrays.asList(new Rol("ROLE_USER")));
         return usuarioRepo.save(usuario);
     }
 
