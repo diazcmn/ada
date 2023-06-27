@@ -28,8 +28,8 @@ public class Libros {
 
     //relacion bd
     @ManyToOne
-    @JoinColumn(name = "libro_id")
-    private Libros libros;
+    @JoinColumn(name = "autor_id")
+    private Autores autores;
 
     //contrusctor vacio
     public Libros(){}

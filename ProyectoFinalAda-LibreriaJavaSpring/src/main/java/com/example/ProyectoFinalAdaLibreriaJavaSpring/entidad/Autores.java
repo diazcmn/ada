@@ -25,7 +25,7 @@ public class Autores {
 
 
     //relacion bd
-    @OneToMany(mappedBy = "autor") //no hace falta metodo ni columna porque no se visualiza
+    @OneToMany(mappedBy = "autores") //no hace falta metodo ni columna porque no se visualiza, nombre en plural
     private List<Libros> listaLibros;
 
     //constructor vacio

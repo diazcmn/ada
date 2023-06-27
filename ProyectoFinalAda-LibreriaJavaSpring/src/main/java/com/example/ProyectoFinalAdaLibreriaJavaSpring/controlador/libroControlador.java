@@ -2,6 +2,8 @@
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.controlador;
 
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Libros;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.UsuarioServicio;
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.autorServicio;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.libroServicio;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,50 +23,70 @@ public class libroControlador {
 
     @Autowired
     private  libroServicio  libroServicio;
+    @Autowired
+    private autorServicio autorServicio;
 
-    @GetMapping("/") //inicio
+    @Autowired
+    private UsuarioServicio usuarioServicio;
+
+    @GetMapping("/login")
+    public String iniciarSesion(){
+        return "login";
+    }
+
+    @GetMapping("/")
+    public String verPaginaDeInicio(){
+        return "index";
+    }
+
+    @GetMapping("/home")
+    public String paginaPrincipal(){
+        return "home";
+    }
+
+    @GetMapping("/listaLibros")
     public String verInicio(Model model){
         List<Libros> libros = libroServicio.listarL();
         model.addAttribute("Libros",  libros);
-        return "inicio";
+        return "listaLibros";
         //configurar los metodos sin firma,
         // despues la implementacion y por ultimo controlador
     }
 
-    @GetMapping("/nuevo")
+    @GetMapping("/nuevoLibro")
     public String formNuevoLibro(Model model){
         model.addAttribute("Autor", new Libros());
-        return "nuevo";
+        return "crearLibro";
     }
 
-    @PostMapping("/save")
+    @PostMapping("/guardarLibros")
     public String guardarLibro(@Validated Libros  libros, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
         if (bindingResult.hasErrors()) {
             model.addAttribute("Libros",  libros);
-            return "nuevo";
+            return "listaLibros";
 
         }
         libroServicio.guardarLibros(libros);
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
-        return "redirect:/";  //preguntar
+        return "redirect:/listaLibros";  //preguntar
     }
-    @GetMapping("/editar/{id}")
+    @GetMapping("/editarLibros/{id}")
     public String formEditarLibros(@PathVariable Integer id, Model model){
         Libros libros = libroServicio.buscarLibrosporId(id);
         model.addAttribute("Libros",  libros);
-        return "editar";
+        return "editarLibro";
 
     }
 
 
-    @PostMapping("/editar/{id}")
+    @PostMapping("/editarLibro/{id}")
     public String editarLibros(@PathVariable Integer id, @Validated Libros libros,
                                BindingResult bindingResult, RedirectAttributes redirect, Model model){
         Libros librosDB = libroServicio.buscarLibrosporId(id);
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("Libros", libros);
-            return "editar";
+            return "editarLibro";
 
         }
 
@@ -81,17 +103,17 @@ public class libroControlador {
         redirect.addFlashAttribute("msgExito", "El autor " +
                 "se actualizo correctamente");
 
-        return "redirect:/";
+        return "redirect:/listaLibros";
     }
 
-    @PostMapping("/eliminar/{id}")
+    @PostMapping("/eliminarLibros/{id}")
     public String eliminarAutores(@PathVariable Integer id,RedirectAttributes redirect) {
         Libros libros = libroServicio.buscarLibrosporId(id);
         libroServicio.eliminarLibros(libros);
 
         redirect.addFlashAttribute("msgExito", "Se elimino el autor");
 
-        return "redirect:/";
+        return "redirect:/listaLibros";
 
     }
 }
