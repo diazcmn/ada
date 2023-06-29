@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
 <head>
   <title>Inicio</title>
   <meta charset="UTF-8">
@@ -10,18 +11,28 @@
 
   <!-- iconos -->
   <!--
-  https://www.youtube.com/watch?v=FBcKbaFZS8c
-  -->
+https://www.youtube.com/watch?v=FBcKbaFZS8c
+-->
 
+  <!--CSS-->
+ <!--<link rel="stylesheet" type="text/css" href="principal.css">-->
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fraunces&family=Roboto&display=swap');
-    body{
-      font-family: 'Fraunces', serif;
-    }
-    .home {
-    color: #0d9aec;
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fraunces&family=Roboto&display=swap');
+
+
+body {
+    font-family: 'Fraunces', serif;
+    background-image: url('bienvenido.jpg');
+    background-repeat: no-repeat;
+    /*background: rgb(51, 51, 51);
+    background: linear-gradient(90deg, rgba(51, 51, 51, 1) 0%, rgba(171, 83, 64, 1) 35%, rgba(255, 255, 255, 1) 100%);*/
+}
+
+/*INDEX*/
+.home {
+    color: #333;
     font-size: 3rem;
-    margin-left:100px;
+    margin-left: 100px;
     display: inline-block;
     position: relative;
 }
@@ -34,7 +45,7 @@
     height: 4px;
     bottom: 0;
     left: 0;
-    background-color: #383737;
+    background-color: red;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.6s ease-out;
@@ -47,15 +58,16 @@
 }
 
 
-.btn-sesion{
+.btn-sesion {
     display: block;
-    border: 2px solid #EEAD33;
+    border: 2px solid red;
     width: 150px;
     margin: auto;
     /*para centrarlo*/
     padding: 5px;
+    padding-left: 10px;
     text-decoration: none;
-    color: #EEAD33;
+    color: red;
     font-size: 1.2em;
     font-weight: bold;
     transition: all 0.5s;
@@ -63,30 +75,36 @@
 }
 
 .btn-sesion:hover {
-    background: #EEAD33;
+    background: red;
     color: white;
 }
 
 
-.txt-h2{
-  color: #EEAD33;
-  border: 2px solid #EEAD33;
-  width: 200px;
-  padding: 10px;
-  text-decoration: none;
-  color: #EEAD33;
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 20px;
-  transition: all 0.5s;
+.txt-h2 {
+
+    border: 2px solid red;
+    width: 200px;
+    padding: 10px;
+    text-decoration: none;
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.5s;
 }
 
-.txt-h2:hover{
-  background: #EEAD33;
-  color: white;
+.txt-h2:hover {
+    background: red;
+    color: white;
 }
 
+/*MENU*/
+.nav-link:hover {
+    color: red;
+    !important
+}
   </style>
+
 
 </head>
 
@@ -99,7 +117,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/}"><i class="bi bi-person-check "></i> En
+          <a class="nav-link active" aria-current="page" th:href="@{/}"><i
+                  class="bi bi-person-check "></i> En
             sesión</a>
         </li>
       </ul>
@@ -121,7 +140,8 @@
 
 <div class="row d-flex justify-content-center">
   <div class="col-sm-6">
-    <h2 style="text-align:center" class="p-3 mb-2 bg-gradient home"><i class="fa-solid fa-book-heart"></i> Sistema Biblioteca <i class="fa-solid fa-book-heart"></i></h2>
+    <h2 style="text-align:center" class="p-3 mb-2 bg-gradient home"><i class="fa-solid fa-book-heart"></i>
+      Sistema Biblioteca <i class="fa-solid fa-book-heart"></i></h2>
   </div>
 </div>
 
@@ -129,16 +149,16 @@
 
 <div class="container">
 
-  <h3 style="text-align:center" class="p-3 mb-2 bg-white bg-gradient text-black"><i class="fa-thin fa-party-horn"></i>
-    Bienvenido <span
-            sec:authentication="principal.username"></span></h3>
-  <br>
+  <!--<h3 style="text-align:center" class="p-3 mb-2 bg-white bg-gradient text-black"><i
+          class="fa-thin fa-party-horn"></i>
+      Bienvenido <span sec:authentication="principal.username"></span></h3>
+  <br>--->
 
 
   <div class="row d-flex justify-content-center">
     <div class="text-center">
-      <a th:href="@{/home}" class="txt-h2" style="text-align:center"><i
-              class="bi bi-house-lock-fill "></i> Ingresa al home </a>
+      <a th:href="@{/home}" class="txt-h2" style="text-align:center"><i class="bi bi-house-lock-fill "></i>
+        Ingresa al home </a>
     </div>
 
   </div>
@@ -151,4 +171,5 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
