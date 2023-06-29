@@ -53,13 +53,13 @@ public class libroControlador {
         // despues la implementacion y por ultimo controlador
     }
 
-    @GetMapping("/nuevoLibro")
+    @GetMapping("/listaLibros/nuevo")
     public String formNuevoLibro(Model model){
         model.addAttribute("Autor", new Libros());
         return "crearLibro";
     }
 
-    @PostMapping("/guardarLibros")
+    @PostMapping("/listaLibros")
     public String guardarLibro(@Validated Libros  libros, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
         if (bindingResult.hasErrors()) {
             model.addAttribute("Libros",  libros);
@@ -70,7 +70,7 @@ public class libroControlador {
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
         return "redirect:/listaLibros";  //preguntar
     }
-    @GetMapping("/editarLibros/{id}")
+    @GetMapping("/listaLibros/editar/{id}")
     public String formEditarLibros(@PathVariable Integer id, Model model){
         Libros libros = libroServicio.buscarLibrosporId(id);
         model.addAttribute("Libros",  libros);
@@ -79,14 +79,14 @@ public class libroControlador {
     }
 
 
-    @PostMapping("/editarLibro/{id}")
+    @PostMapping("/listaLibros/{id}")
     public String editarLibros(@PathVariable Integer id, @Validated Libros libros,
                                BindingResult bindingResult, RedirectAttributes redirect, Model model){
         Libros librosDB = libroServicio.buscarLibrosporId(id);
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("Libros", libros);
-            return "editarLibro";
+            return "listaLibros";
 
         }
 

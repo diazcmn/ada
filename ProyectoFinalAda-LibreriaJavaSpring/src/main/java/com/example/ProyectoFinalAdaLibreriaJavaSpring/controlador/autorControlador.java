@@ -31,7 +31,7 @@ public class autorControlador {
         // despues la implementacion y por ultimo controlador
     }
 
-    @GetMapping("/nuevoAutor")
+    @GetMapping("/listaAutores/nuevo")
     public String formNuevoAutor(Model model){
         model.addAttribute("Autor", new Autores());
         return "crearAutor";
@@ -46,9 +46,9 @@ public class autorControlador {
         }
         autorServicio.guardarAutores(autores);
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
-        return "redirect:/listaLibros";  //preguntar
+        return "redirect:/listaAutores";  //preguntar
     }
-        @GetMapping("/editarAutor/{id}")
+        @GetMapping("/listaAutores/editarAutor/{id}")
         public String formEditarAutores(@PathVariable Integer id, Model model){
             Autores autores1 = autorServicio.buscarAutoresporId(id);
             model.addAttribute("Autores", autores1);
@@ -57,14 +57,14 @@ public class autorControlador {
         }
 
 
-     @PostMapping("/editarAutor/{id}")
+     @PostMapping("/listaAutores/{id}")
        public String editarAtores(@PathVariable Integer id, @Validated Autores autores,
            BindingResult bindingResult, RedirectAttributes redirect, Model model){
         Autores autoresDB = autorServicio.buscarAutoresporId(id);
 
         if (bindingResult.hasErrors()) {
               model.addAttribute("Autores", autores);
-                return "editarAutor";
+                return "listarAutores";
 
            }
 
@@ -78,7 +78,7 @@ public class autorControlador {
             redirect.addFlashAttribute("msgExito", "El autor " +
                     "se actualizo correctamente");
 
-            return "redirect:/listaAutor";
+            return "redirect:/listaAutores";
         }
 
         @PostMapping("/eliminarAutor/{id}")
@@ -88,7 +88,7 @@ public class autorControlador {
 
             redirect.addFlashAttribute("msgExito", "Se elimino el autor");
 
-            return "redirect:/listaAutor";
+            return "redirect:/listaAutores";
 
 }
     }

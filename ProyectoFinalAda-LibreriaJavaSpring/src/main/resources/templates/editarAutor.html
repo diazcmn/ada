@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
-<body background="">
+<body>
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a type="button" class="btn btn-outline-light" href="#"><i class="bi bi-person-fill-gear"></i> Editar
@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/autores}"><i class="bi bi-person-vcard-fill"></i> Autores</a>
+                <a class="nav-link" th:href="@{/listaAutores}"><i class="bi bi-person-vcard-fill"></i> Autores</a>
             </li>
         </ul>
     </div>
@@ -39,7 +39,7 @@
 </nav>
 <!-- Fondo form edicion  -->
 <div class="bg-image" style=" background-image:
-            url('https://i.pinimg.com/564x/40/ba/4e/40ba4e25d4ecb1bd9efc85f1bfca6822.jpg');
+            url('');
              height: 100vh;" >
 
     <br>
@@ -78,9 +78,9 @@
                             <br>
 
                             <div class="box-footer">
-                                <button class="btn btn-success"><i class="bi bi-cloud-download-fill"></i> Guardar
+                                <button class="btn btn-dark"><i class="bi bi-cloud-download-fill"></i> Guardar
                                 </button>
-                                <a th:href="@{/listaAutor}" class="btn btn-dark"><i class="bi bi-x-circle"></i> Cancelar
+                                <a th:href="@{/listaAutor}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Cancelar
                                 </a>
                             </div>
                         </form>
