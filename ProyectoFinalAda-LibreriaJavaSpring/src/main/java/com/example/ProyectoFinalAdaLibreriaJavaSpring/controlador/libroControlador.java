@@ -53,7 +53,7 @@ public class libroControlador {
         // despues la implementacion y por ultimo controlador
     }
 
-    @GetMapping("/listaLibros/nuevo")
+    @GetMapping("/listaLibros/nuevoLibro")
     public String formNuevoLibro(Model model){
         model.addAttribute("Autor", new Libros());
         return "crearLibro";
@@ -70,7 +70,7 @@ public class libroControlador {
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
         return "redirect:/listaLibros";  //preguntar
     }
-    @GetMapping("/listaLibros/editar/{id}")
+    @GetMapping("/listaLibros/editarLibro/{id}")
     public String formEditarLibros(@PathVariable Integer id, Model model){
         Libros libros = libroServicio.buscarLibrosporId(id);
         model.addAttribute("Libros",  libros);

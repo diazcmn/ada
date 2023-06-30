@@ -31,7 +31,7 @@ public class autorControlador {
         // despues la implementacion y por ultimo controlador
     }
 
-    @GetMapping("/listaAutores/nuevo")
+    @GetMapping("/listaAutores/nuevoAutor")
     public String formNuevoAutor(Model model){
         model.addAttribute("Autor", new Autores());
         return "crearAutor";
