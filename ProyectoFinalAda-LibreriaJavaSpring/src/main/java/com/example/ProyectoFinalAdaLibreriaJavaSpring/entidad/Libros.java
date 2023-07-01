@@ -96,4 +96,13 @@ public class Libros {
     public void setCondicionEjemplares(String condicionEjemplares) {
         this.condicionEjemplares = condicionEjemplares;
     }
+
+    //Faltaba los get y set de autores, de tu relacion
+    public Autores getAutores() {
+        return autores;
+    }
+
+    public void setAutores(Autores autores) {
+        this.autores = autores;
+    }
 }

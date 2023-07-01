@@ -1,8 +1,11 @@
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,7 +23,11 @@ public class Autores {
     private String apellidoAutor;
 
     @Column(name = "fechaNacAutor", length = 100, nullable = false)
-    private String fechaNacAutor;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    //El tipo de dato para las fechas(siempre q ocupes el calendario es LocalDate, tenias String)
+    //no te añadi esta anotacion @Past porque no tenes la dependencia VALIDATION
+    //Entonces no quise tocar mucho - Vas a tener que tirar tu BD de nuevo
+    private LocalDate fechaNacAutor;
 
 
 
@@ -32,7 +39,7 @@ public class Autores {
     public Autores(){}
 
     //constructor con parametros
-    public Autores(int id, String nombreAutor, String apellidoAutor, String fechaNacAutor){
+    public Autores(int id, String nombreAutor, String apellidoAutor, LocalDate fechaNacAutor){
         this.id = id;
         this.nombreAutor = nombreAutor;
         this.fechaNacAutor = fechaNacAutor;
@@ -66,11 +73,11 @@ public class Autores {
         this.apellidoAutor = apellidoAutor;
     }
 
-    public String getFechaNacAutor() {
+    public LocalDate getFechaNacAutor() {
         return fechaNacAutor;
     }
 
-    public void setFechaNacAutor(String fechaNacAutor) {
+    public void setFechaNacAutor(LocalDate fechaNacAutor) {
         this.fechaNacAutor = fechaNacAutor;
     }
 }

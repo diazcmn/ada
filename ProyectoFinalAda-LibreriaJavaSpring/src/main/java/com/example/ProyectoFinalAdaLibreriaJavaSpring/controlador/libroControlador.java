@@ -1,6 +1,7 @@
 
 package com.example.ProyectoFinalAdaLibreriaJavaSpring.controlador;
 
+import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Autores;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.entidad.Libros;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.UsuarioServicio;
 import com.example.ProyectoFinalAdaLibreriaJavaSpring.servicio.autorServicio;
@@ -47,7 +48,7 @@ public class libroControlador {
     @GetMapping("/listaLibros")
     public String verInicio(Model model){
         List<Libros> libros = libroServicio.listarL();
-        model.addAttribute("Libros",  libros);
+        model.addAttribute("libros",  libros);
         return "listaLibros";
         //configurar los metodos sin firma,
         // despues la implementacion y por ultimo controlador
@@ -55,25 +56,37 @@ public class libroControlador {
 
     @GetMapping("/listaLibros/nuevoLibro")
     public String formNuevoLibro(Model model){
-        model.addAttribute("Autor", new Libros());
+        //te faltaba la lista de autores para el select
+        List<Autores> listaAutores = autorServicio.listar();
+                            //Tenias autor antes, era libro y abajo autor
+        model.addAttribute("libro" , new Libros());
+        model.addAttribute("autores", listaAutores);
         return "crearLibro";
     }
 
     @PostMapping("/listaLibros")
-    public String guardarLibro(@Validated Libros  libros, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+    public String guardarLibro(@Validated Libros  libro, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+        List<Autores> listaAutores = autorServicio.listar();
+
         if (bindingResult.hasErrors()) {
-            model.addAttribute("Libros",  libros);
-            return "listaLibros";
+            model.addAttribute("libro",  libro);
+            model.addAttribute("autores", listaAutores);
+            return "crearLibro";
 
         }
-        libroServicio.guardarLibros(libros);
+        libroServicio.guardarLibros(libro);
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
-        return "redirect:/listaLibros";  //preguntar
+
+        return "redirect:/listaLibros";
     }
+
+
     @GetMapping("/listaLibros/editarLibro/{id}")
     public String formEditarLibros(@PathVariable Integer id, Model model){
         Libros libros = libroServicio.buscarLibrosporId(id);
-        model.addAttribute("Libros",  libros);
+                            //Tene cuidado con las Mayusculas o minusc
+                            //Por lo gral, siempre pongo en minusc para olvidarme de esos detalles
+        model.addAttribute("libro",  libros);
         return "editarLibro";
 
     }
@@ -85,8 +98,10 @@ public class libroControlador {
         Libros librosDB = libroServicio.buscarLibrosporId(id);
 
         if (bindingResult.hasErrors()) {
-            model.addAttribute("Libros", libros);
-            return "listaLibros";
+                        //Tene cuidado con las Mayusculas o minusc
+                        //Si aca pones en mayuscula en el html tmb, yo lo coloque en minuscula y singular
+            model.addAttribute("libro", libros);
+            return "editarLibro";
 
         }
 
@@ -100,7 +115,7 @@ public class libroControlador {
         libroServicio.guardarLibros(librosDB);
 
 
-        redirect.addFlashAttribute("msgExito", "El autor " +
+        redirect.addFlashAttribute("msgExito", "El libro " +
                 "se actualizo correctamente");
 
         return "redirect:/listaLibros";
@@ -111,7 +126,7 @@ public class libroControlador {
         Libros libros = libroServicio.buscarLibrosporId(id);
         libroServicio.eliminarLibros(libros);
 
-        redirect.addFlashAttribute("msgExito", "Se elimino el autor");
+        redirect.addFlashAttribute("msgExito", "Se elimino el libro");
 
         return "redirect:/listaLibros";
 

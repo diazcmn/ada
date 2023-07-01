@@ -54,7 +54,8 @@
                     </div>
 
                     <div class="card-body">
-                        <form th:action="@{/listaAutor/{id}(id=${autor.id})}" th:object="${autor}" method="POST">
+                                        <!-- lo tenias en singular, pero en controlador en plural -->
+                        <form th:action="@{/listaAutores/{id}(id=${autores.id})}" th:object="${autores}" method="POST">
                             <div class="form-group">
                                 <label>Nombre : </label>
                                 <input type="text" name="nombreAutor" th:field="*{nombreAutor}" class="form-control"
@@ -80,7 +81,7 @@
                             <div class="box-footer">
                                 <button class="btn btn-dark"><i class="bi bi-cloud-download-fill"></i> Guardar
                                 </button>
-                                <a th:href="@{/listaAutor}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Cancelar
+                                <a th:href="@{/listaAutores}" class="btn btn-danger"><i class="bi bi-x-circle"></i> Cancelar
                                 </a>
                             </div>
                         </form>

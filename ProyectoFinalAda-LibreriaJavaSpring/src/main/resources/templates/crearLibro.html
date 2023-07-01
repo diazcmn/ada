@@ -21,7 +21,7 @@
     <!-- menu -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" th:href="@{/libros}"><i class="bi bi-journal-text"></i> Control de
+            <li class="nav-item"><a class="nav-link" th:href="@{/listaLibros}"><i class="bi bi-journal-text"></i> Control de
                 libros</a>
             </li>
         </ul>
@@ -43,21 +43,24 @@
 
     <br>
 
+    <!--Este no funcionaba porque faltaban los get y set de autores en la entidad Libros
+      por la relacion que tenes.-->
+
     <div class="container">
         <div class="row d-flex container justify-content-center">
             <div class="col-sm-5">
 
                 <div class="card">
                     <div class="card-header">
-                        <h1 style="text-align:center" class="p-3 mb-2 bg-gradient text-white"> Registrar libro </h1>
+                        <h1 style="text-align:center" class="p-3 mb-2 bg-secondary text-black"> Registrar libro </h1>
                     </div>
 
                     <div class="card-body">
-                        <form th:action="@{/libros}" th:object="${libro}" method="POST">
+                        <form th:action="@{/listaLibros}" th:object="${libro}" method="POST">
 
                             <div class="form-group">
                                 <label>Isbn : </label>
-                                <input type="number" name="ISBN" th:field="*{ISBN}" class="form-control"
+                                <input type="text" name="ISBN" th:field="*{ISBN}" class="form-control"
                                        placeholder="Escriba el isbn :" required>
                             </div>
 
@@ -70,7 +73,7 @@
 
                             <div class="form-group">
                                 <label>Año : </label>
-                                <input type="number" name="anio" th:field="*{anioEdicion}" class="form-control"
+                                <input type="text" name="anioEdicion" th:field="*{anioEdicion}" class="form-control"
                                        placeholder="Digite el año :" required>
                             </div>
 
@@ -82,24 +85,26 @@
 
                             <div class="form-group">
                                 <label>Ejemplares prestados : </label>
-                                <input type="number" name="condicionEjemplares" th:field="*{condicionEjemplares}"
+                                <input type="text" name="condicionEjemplares" th:field="*{condicionEjemplares}"
                                        class="form-control" placeholder="Digite la cantidad de ejemplares prestados :" required>
                             </div>
 
-                            <div class="form-group">
-                                <label>Autor</label>
-                                <select th:field="*{autor}" id="autor" class="form-select" required>
-                                    <option selected value="">Seleccionar Autor</option>
-                                    <option th:each="autor : ${autores}" th:text="${autor.nombreAutor}"
-                                            th:value="${autor.id}"></option>
-                                </select>
-                            </div>
+
+                                <div class="form-group">
+                                    <label>Autor</label>
+                                    <select th:field="*{autores}" id="autores" class="form-select" required>
+                                        <option selected value="">Seleccionar Autor</option>
+                                        <option th:each="autor : ${autores}" th:text="${autor.nombreAutor}"
+                                                th:value="${autor.id}"></option>
+                                    </select>
+                                </div>
+
 
                             <br>
 
                             <div class="box-footer">
-                                <button class="btn btn-dark"><i class="bi bi-journal-check"></i> Guardar</button>
-                                <a th:href="@{/libros}" class="btn-sesion"><i class="bi bi-x-circle"></i> Cancelar </a>
+                                <button class="btn btn-success"><i class="bi bi-journal-check"></i> Guardar</button>
+                                <a th:href="@{/listaLibros}" class="btn btn-dark"><i class="bi bi-x-circle"></i> Cancelar </a>
                             </div>
 
                         </form>

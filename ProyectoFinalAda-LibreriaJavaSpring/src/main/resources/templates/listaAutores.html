@@ -86,7 +86,8 @@
 
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/listaLibros/nuevo}"> Registrar libros</a>
+                                        <!-- tambien le faltaba nuevoLibro a la redireccion -->
+        <a class="nav-link" th:href="@{/listaLibros/nuevoLibro}"> Registrar libros</a>
       </li>
     </ul>
   </div>
@@ -117,7 +118,8 @@
 
     <div class="row">
       <div class="col-lg-3">
-        <a th:href="@{listaAutores/nuevo}" class="btn-sesion"> Añadir </a>
+                                <!-- faltaba añadir nuevoAutor a la redireccion -->
+        <a th:href="@{/listaAutores/nuevoAutor}" class="btn-sesion"> Añadir </a>
       </div>
     </div>
 
@@ -128,7 +130,6 @@
       <tr>
         <th>Nombre</th>
         <th>Apellido</th>
-        <th>Lugar de Nacimiento</th>
         <th>Fecha de Nacimiento</th>
         <th>Acciones</th>
       </tr>
@@ -136,15 +137,18 @@
       <tbody>
       <tr th:each="autor : ${autores}">
         <td th:text="${autor.nombreAutor}">Nombre</td>
-        <td th:text="${autor.apellidoAutor}">Nombre</td>
+        <td th:text="${autor.apellidoAutor}">Apellido</td>
 
+              <!-- fijate en tu entidad Autores -->
         <td
                 th:text="${#temporals.format(autor.fechaNacAutor,'dd/MM/YYYY')}"></td>
+
+
         <td>
-          <a th:href="@{/editarAutor{id}(id=${autor.id})}"  class="btn btn-info"><i class="bi bi-person-fill-gear"></i> Editar</a>
+          <a th:href="@{/listaAutores/editarAutor/{id}(id=${autor.id})}"  class="btn btn-info"><i class="bi bi-person-fill-gear"></i> Editar</a>
           <a href="#" onclick="eliminarAutor(this)" class="btn btn-danger"><i class="bi bi-person-fill-slash"></i> Eliminar</a>
 
-          <form th:action="@{/eliminar/{id}(id=${autor.id})}" method="post"></form>
+          <form th:action="@{/eliminarAutor/{id}(id=${autor.id})}" method="post"></form>
 
         </td>
       </tr>

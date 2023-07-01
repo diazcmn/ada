@@ -20,12 +20,12 @@ import java.util.List;
 public class autorControlador {
 
     @Autowired
-    private autorServicio autorServicio;
+    private autorServicio autorServ;
 
     @GetMapping("/listaAutores")
-    public String verInicio(Model model){
-        List<Autores> autores = autorServicio.listar();
-        model.addAttribute("Autores", autores);
+    public String verInicioAut(Model model){
+        List<Autores> autores = autorServ.listar();
+        model.addAttribute("autores", autores);
         return "listaAutores";
         //configurar los metodos sin firma,
         // despues la implementacion y por ultimo controlador
@@ -33,25 +33,31 @@ public class autorControlador {
 
     @GetMapping("/listaAutores/nuevoAutor")
     public String formNuevoAutor(Model model){
-        model.addAttribute("Autor", new Autores());
+        model.addAttribute("autores", new Autores());
         return "crearAutor";
     }
 
     @PostMapping("/listaAutores")
-    public String guardarAutor(@Validated Autores autores, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+    public String guardarAutor(@Validated Autores autores, BindingResult bindingResult,
+      RedirectAttributes redirectAttributes, Model model){
+
         if (bindingResult.hasErrors()) {
-            model.addAttribute("Autores", autores);
-            return "listaAutores";
+            model.addAttribute("autores", autores);
+            return "crearAutor";
 
         }
-        autorServicio.guardarAutores(autores);
+        autorServ.guardarAutores(autores);
+
         redirectAttributes.addFlashAttribute("msgExito", "Autor añadido");
         return "redirect:/listaAutores";  //preguntar
     }
+
+
         @GetMapping("/listaAutores/editarAutor/{id}")
         public String formEditarAutores(@PathVariable Integer id, Model model){
-            Autores autores1 = autorServicio.buscarAutoresporId(id);
-            model.addAttribute("Autores", autores1);
+            Autores autores = autorServ.buscarAutoresporId(id);
+
+            model.addAttribute("autores", autores);
             return "editarAutor";
 
         }
@@ -60,11 +66,11 @@ public class autorControlador {
      @PostMapping("/listaAutores/{id}")
        public String editarAtores(@PathVariable Integer id, @Validated Autores autores,
            BindingResult bindingResult, RedirectAttributes redirect, Model model){
-        Autores autoresDB = autorServicio.buscarAutoresporId(id);
+        Autores autoresDB = autorServ.buscarAutoresporId(id);
 
         if (bindingResult.hasErrors()) {
-              model.addAttribute("Autores", autores);
-                return "listarAutores";
+              model.addAttribute("autores", autores);
+                return "editarAutor";
 
            }
 
@@ -73,7 +79,7 @@ public class autorControlador {
             autoresDB.setApellidoAutor(autores.getApellidoAutor());
             autoresDB.setFechaNacAutor(autores.getFechaNacAutor());
 
-            autorServicio.guardarAutores(autoresDB);
+            autorServ.guardarAutores(autoresDB);
 
             redirect.addFlashAttribute("msgExito", "El autor " +
                     "se actualizo correctamente");
@@ -83,8 +89,8 @@ public class autorControlador {
 
         @PostMapping("/eliminarAutor/{id}")
         public String eliminarAutores(@PathVariable Integer id,RedirectAttributes redirect) {
-            Autores autores1 = autorServicio.buscarAutoresporId(id);
-            autorServicio.eliminarAutores(autores1);
+            Autores autores1 = autorServ.buscarAutoresporId(id);
+            autorServ.eliminarAutores(autores1);
 
             redirect.addFlashAttribute("msgExito", "Se elimino el autor");
 
