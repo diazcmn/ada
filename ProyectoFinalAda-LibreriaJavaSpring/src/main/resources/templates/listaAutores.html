@@ -145,7 +145,7 @@
 
 
         <td>
-          <a th:href="@{/listaAutores/editarAutor/{id}(id=${autor.id})}"  class="btn btn-info"><i class="bi bi-person-fill-gear"></i> Editar</a>
+          <a th:href="@{/listaAutores/editarAutor/{id}(id=${autor.id})}"  class="btn btn-warning"><i class="bi bi-journal-medical"></i> Editar</a>
           <a href="#" onclick="eliminarAutor(this)" class="btn btn-danger"><i class="bi bi-person-fill-slash"></i> Eliminar</a>
 
           <form th:action="@{/eliminarAutor/{id}(id=${autor.id})}" method="post"></form>
